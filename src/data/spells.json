@@ -1,0 +1,130 @@
+[
+    {
+        "id": 1,
+        "level": 0,
+        "name": "Acid Splash",
+        "school": "Conjuration",
+        "ritual": false,
+        "casting_time": "1 Action",
+        "range": "60 feet",
+        "duration": "Instantaneous",
+        "components": ["V", "S"],
+        "classes": ["Artificer", "Occultist", "Sorcerer", "Wizard"],
+        "source": "Player's Handbook",
+        "description": [
+            {
+                "title": "untitled",
+                "content": "You hurl a bubble of acid. Choose one creature you can see within range, or choose two creatures you can see within range that are within 5 feet of each other. A target must succeed on a Dexterity saving throw or take 1d6 acid damage."
+            },
+            {
+                "title": "At Higher Levels.",
+                "content": " This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6)."
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "level": 0,
+        "name": "Blade Ward",
+        "school": "Transmutation",
+        "ritual": false,
+        "casting_time": "1 Action",
+        "range": "Self",
+        "duration": "1 round",
+        "components": ["V", "S"],
+        "classes": ["Bard", "Sorcerer", "Warlock", "Wizard"],
+        "source": "Player's Handbook",
+        "description": [
+            {
+                "title": "untitled",
+                "content": "You extend your hand and trace a sigil of warding in the air. Until the end of your next turn, you have resistance against bludgeoning, piercing, and slashing damage dealt by weapon attacks."
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "level": 1,
+        "name": "Alarm",
+        "school": "Abjuration",
+        "ritual": true,
+        "casting_time": "1 Action",
+        "range": "30 feet",
+        "duration": "8 hours",
+        "components": ["V", "S", "M (a tiny bell and a piece of fine silver wire)"],
+        "classes": ["Artificer", "Inventor", "Ranger", "Wizard"],
+        "source": "Player's Handbook",
+        "description": [
+            {
+                "title":"untitled",
+                "content": "You set an alarm against unwanted intrusion. Choose a door, a window, or an area within range that is no larger than a 20-foot cube. Until the spell ends, an alarm alerts you whenever a Tiny or larger creature touches or enters the warded area. When you cast the spell, you can designate creatures that won't set off the alarm. You also choose whether the alarm is mental or audible."
+            },
+            {
+                "title":"untitled",
+                "content": "A mental alarm alerts you with a ping in your mind if you are within 1 mile of the warded area. This ping awakens you if you are sleeping.\nAn audible alarm produces the sound of a hand bell for 10 seconds within 60 feet."
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "level": 2,
+        "name": "Alter Self",
+        "school": "Transmutation",
+        "ritual": false,
+        "casting_time": "1 Action",
+        "range": "Self",
+        "duration": "Concentration, up to 1 hour",
+        "components": ["V", "S"],
+        "classes": ["Artificer", "Sorcerer", "Wizard"],
+        "source": "Player's Handbook",
+        "description": [
+            {
+                "title": "untitled",
+                "content": "You assume a different form. When you cast the spell, choose one of the following options, the effects of which last for the duration of the spell. While the spell lasts, you can end one option as an action to gain the benefits of a different one."
+            },
+            {
+                "title": "Aquatic Adaptation.",
+                "content": "You adapt your body to an aquatic environment, sprouting gills, and growing webbing between your fingers. You can breathe underwater and gain a swimming speed equal to your walking speed."
+            },
+            {
+                "title": "Change Appearance.",
+                "content": "You transform your appearance. You decide what you look like, including your height, weight, facial features, sound of your voice, hair length, coloration, and distinguishing characteristics, if any. You can make yourself appear as a member of another race, though none of your statistics change. You also don't appear as a creature of a different size than you, and your basic shape stays the same; if you're bipedal, you can't use this spell to become quadrupedal, for instance. At any time for the duration of the spell, you can use your action to change your appearance in this way again."
+            },
+            {
+                "title": "Natural Weapons.",
+                "content": "You grow claws, fangs, spines, horns, or a different natural weapon of your choice. Your unarmed strikes deal 1d6 bludgeoning, piercing, or slashing damage, as appropriate to the natural weapon you chose, and you are proficient with your unarmed strikes. Finally, the natural weapon is magic and you have a +1 bonus to the attack and damage rolls you make using it."
+            }
+        ]    
+    },
+    {
+        "id": 5,
+        "level": 2,
+        "name": "Summon Beast",
+        "school": "Conjuration",
+        "ritual": false,
+        "casting_time": "1 Action",
+        "range": "Self",
+        "duration": "Concentration, up to 1 hour",
+        "components": ["V", "S", "M"],
+        "materials": "(a feather, tuft of fur, and fish tail inside a gilded acorn worth at least 200 gp)",
+        "classes": ["Druid", "Ranger"],
+        "source": "Tasha's Cauldron of Everything",
+        "description": [
+            {
+                "title": "untitled",
+                "content": "You call forth a bestial spirit. It manifests in an unoccupied space that you can see within range. This corporeal form uses the Bestial Spirit stat block. When you cast the spell, choose an environment: Air, Land, or Water. The creature resembles an animal of your choice that is native to the chosen environment, which determines certain traits in its stat block. The creature disappears when it drops to 0 hit points or when the spell ends."
+            },
+            {
+                "title": "untitled",
+                "content": "The creature is an ally to you and your companions. In combat, the creature shares your initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don’t issue any, it takes the Dodge action and uses its move to avoid danger."
+            },
+            {
+                "title": "At Higher Levels.",
+                "content": "When you cast this spell using a spell slot of 3rd level or higher, use the higher level where the spell’s level appears in the stat block."
+            },
+            {
+                "title": "monster",
+                "content": 3
+            }
+        ]
+    }
+]

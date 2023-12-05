@@ -1,0 +1,64 @@
+.borderTop, .borderBot {
+    background-color: green;
+    height: 0.4rem;
+    border: 1px solid black;
+}
+
+.monsterDesc {
+    display: block;
+    width: fit-content;
+}
+
+.monsterDescContainer {
+    background-color: lightgrey;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    /*height: 120px;*/
+    margin: 0 2px;
+    padding: 0.25rem 0.5rem;
+    box-shadow: 0px 0px 10px 0.4rem grey;
+}
+
+.monsterDescContainer > * {
+    /*flex-basis: 400px;*/
+    max-width: 400px;
+}
+
+.divider {
+    width: 0;
+    height: 0;
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    border-left: 400px solid brown;
+    margin: .5rem 0;
+}
+
+.statsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.statsContainer > div {
+    text-align: center;
+}
+
+.sectionContainer {
+    margin-top: 0.5rem;
+}
+
+.sectionTitleWrapper {
+    border-bottom: 1px solid black;
+}
+
+.sectionTitleWrapper h4::first-letter {
+    font-size: 1.20rem;
+}
+
+.sectionBodyWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.25rem 0;
+}

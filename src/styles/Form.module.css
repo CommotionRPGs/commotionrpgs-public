@@ -1,0 +1,295 @@
+/* 
+=====================
+General
+=====================
+*/
+.spellForm, .monsterForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 100%;
+    /*overflow-y: scroll;*/
+}
+.formContent {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 100%;
+    padding-bottom: 4rem;
+    /*overflow: visible;*/
+    overflow-y: scroll;
+    /*overflow-x: auto;*/
+}
+.multiInputContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    width: 100%;
+}
+.multiInputContainer:has(.smallInputContainer) {
+    justify-content: space-evenly;
+}
+.inputWrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.inputWrapper:focus-within {
+    border-color: #2684FF;
+    border-width: 2px;
+    padding: 1px 7px;
+}
+.inputWrapper input, .inputWrapper textarea {
+    width: 100%;
+    /*width: fit-content;*/
+    border: none;
+    font-size: 14px;
+}
+.inputWrapper input:focus, .inputWrapper textarea:focus {
+    outline: none;
+}
+.smallInputContainer input{
+    text-align: center;
+}
+.inputContainerV {
+    display: flex;
+    flex-direction: column;
+}
+.inputContainerH {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+.vertical {
+    flex-direction: column;
+}
+.horizontal {
+    flex-direction: row;
+}
+.iconButton {
+    aspect-ratio: 1 / 1;
+    padding: 2px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.iconButton:disabled {
+    color: lightgrey;
+    pointer-events: none;
+}
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 5rem;
+    position: sticky;
+    position: -webkit-sticky;
+    bottom: 0px;
+    background: white;
+    /*margin-bottom: -10px;*/
+}
+.dropdownButton {
+    display: flex;
+    padding: 9px 13px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+
+    border-radius: 5px;
+    cursor: pointer;
+}
+.dropdownButton:not(:last-child) {
+    border-bottom: 1px solid darkgrey;
+    border-radius: 0;
+}
+.dropdownButton:hover {
+    color: #939393;
+}
+/* 
+=====================
+Section
+=====================
+*/
+.sectionHeaderContainer {
+    display: flex;
+    flex-direction: row;
+}
+.sectionHeaderContainer :first-child {
+    width: 100%;
+}
+.sectionContentContainer {
+    composes: multiInputContainer;
+    gap: 1rem;
+    flex-direction: column;
+}
+.sectionItemContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+}
+.sectionItemEditContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.monsterItemContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.tabHeader {
+    margin-bottom: -2px;
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+}
+.tabWrapper {
+    padding-bottom: 1px;
+    background: white;
+    width: fit-content;
+}
+.tab {
+    width: fit-content;
+    border: 1px solid lightgrey;
+    border-radius: 5px 5px 0 0;
+    padding: 0.5rem;
+}
+.tab.selected {
+    border-bottom: 1px solid transparent;
+}
+.monsterDescriptionWrapper {
+    border-top: 1px solid lightgrey;
+    padding: 0.5rem 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+/* 
+=====================
+Spell Form
+=====================
+*/
+.spellForm label {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.spellForm .inputWrapper, .monsterForm .inputWrapper {
+    min-height: 38px;
+    border: 1px solid lightgray;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.spellForm table th, .spellForm table td  {
+    border: 2px solid red;
+    /*width: 60%;*/
+}
+/* 
+=====================
+Monster Form
+=====================
+*/
+.monsterForm .smallInputContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 7rem;
+}
+/* 
+=====================
+Proficiency Toggle Button
+=====================
+*/
+.knobs,
+.layer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.button {
+  display: inline-block;
+  position: relative;
+  top: 50%;
+  width: 40px;
+  height: 24px;
+  /*margin: -20px auto 0 auto;*/
+  overflow: hidden;
+}
+
+.button.r,
+.button.r .layer {
+  border-radius: 100px;
+}
+
+.button.b2 {
+  border-radius: 2px;
+}
+
+.checkbox {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.knobs {
+  z-index: 2;
+}
+
+.layer {
+  width: 100%;
+  background-color: #ebf7fc;
+  transition: 0.3s ease all;
+  z-index: 1;
+}
+
+/* Button 1 */
+#button1 .knobs:before {
+  content: "P";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 15px;
+  height: 10px;
+  color: #fff;
+  font-size: 10px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1;
+  padding: 3px 1px;
+  background-color: #03a9f4;
+  border-radius: 50%;
+  transition: 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15) all;
+}
+
+#button1 .checkbox:checked + .knobs:before {
+  content: "E";
+  left: 18px;
+  background-color: #f44336;
+}
+
+#button1 .checkbox:checked ~ .layer {
+  background-color: #fcebeb;
+}
+
+#button1 .knobs,
+#button1 .knobs:before,
+#button1 .layer {
+  transition: 0.3s ease all;
+}

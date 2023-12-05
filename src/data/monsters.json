@@ -1,0 +1,178 @@
+[
+    {
+        "id": 1,
+        "name": "Bandit",
+        "size": "medium",
+        "creature_type": "humanoid",
+        "alignment": "any non-lawful alignment",
+        "armor_class": "12",
+        "hit_points": "11 (2d8+2)",
+        "speed": "30 ft.",
+        "ability_scores": {
+            "strength": 11,
+            "dexterity": 12,
+            "constitution": 12,
+            "intelligence": 10,
+            "wisdom": 10,
+            "charisma": 10
+        },
+        "saving_throws": {
+        },
+        "skills": {
+        },
+        "damage_irv": {
+        },
+        "condition_i": [
+        ],
+        "senses": {
+        },
+        "initiative_modifier": 0,
+        "languages": [],
+        "cr": "1/8",
+        "pb": 2,
+        "traits": [],
+        "actions": [
+            {
+                "title": "Scimitar",
+                "content": "Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 4 (1d6 +1) slashing damage."
+            },
+            {
+                "title": "Light Crossbow",
+                "content": "Ranged Weapon Attack: +3 to hit, range 80 ft., one target. Hit: 5 (1d8 +1) piercing damage."
+            }
+        ],
+        "bonus_actions": [],
+        "reactions": [],
+        "legendary_actions": [],
+        "mythic_actions": []
+    },
+    {
+        "id": 2,
+        "name": "Steel Defender",
+        "size": "medium",
+        "creature_type": "construct",
+        "alignment": "",
+        "armor_class": "15",
+        "hit_points": "2 + your Intelligence modifier + 5 times your artificer level (the defender has a number of Hit Dice [d8s] equal to your artificer level)",
+        "speed": "40 ft.",
+        "ability_scores": {
+            "strength": 14,
+            "dexterity": 12,
+            "constitution": 14,
+            "intelligence": 4,
+            "wisdom": 10,
+            "charisma": 6
+        },
+        "saving_throws": {
+            "dexterity": "proficient",
+            "constitution": "proficient"
+        },
+        "skills": {
+            "athletics": "proficient",
+            "perception": "expertise"
+        },
+        "damage_irv": {
+            "poison": "immune"
+        },
+        "condition_i": [
+            "charmed",
+            "exhaustion",
+            "poisoned"
+        ],
+        "senses": {
+            "darkvision": "60"
+        },
+        "initiative_modifier": 1,
+        "languages": ["understands the languages you speak"],
+        "cr": "-",
+        "pb": "equals your bonus",
+        "traits": [
+            {
+                "title": "Vigilant",
+                "content": "The defender can't be surprised."
+            }
+        ],
+        "actions": [
+            {
+                "title": "Force-Empowered Rend",
+                "content": "Melee Weapon Attack: your spell attack modifier to hit, reach 5 ft., one target you can see. Hit: 1d8 + PB force damage."
+            },
+            {
+                "title": "Repair (3/Day)",
+                "content": "The magical mechanisms inside the defender restore 2d8 + PB hit points to itself or to one construct or object within 5 feet of it."
+            }
+        ],
+        "bonus_actions": [],
+        "reactions": [
+            {
+                "title": "Deflect Attack",
+                "content": "The defender imposes disadvantage on the attack roll of one creature it can see within 5 feet of it, provided the attack roll is against a creature other than the defender."
+            }
+        ],
+        "legendary_actions": [],
+        "mythic_actions": []
+    },
+    {
+        "id": 3,
+        "name": "Bestial Spirit",
+        "size": "small",
+        "creature_type": "beast",
+        "alignment": "",
+        "armor_class": "11 + the level of the spell (natural armor)",
+        "hit_points": "20 (Air only) or 30 (Land and Water only) + 5 for each spell level above 2nd",
+        "speed": "30 ft., climb 30 ft. (Land only), fly 90 ft. (Air only), swim 30 ft. (Water only)",
+        "ability_scores": {
+            "strength": 18,
+            "dexterity": 11,
+            "constitution": 16,
+            "intelligence": 4,
+            "wisdom": 14,
+            "charisma": 5
+        },
+        "saving_throws": {
+        },
+        "skills": {
+        },
+        "damage_irv": {
+        },
+        "condition_i": [
+        ],
+        "senses": {
+            "darkvision": 60
+        },
+        "initiative_modifier": 0,
+        "languages": [
+            "understands the languages you speak"
+        ],
+        "cr": "-",
+        "pb": "equals your bonus",
+        "traits": [
+            {
+                "title": "Flyby (Air Only)",
+                "content": "The beast doesn't provoke opportunity attacks when it flies out of an enemy's reach."
+            },
+            {
+                "title": "Pack Tactics (Land and Water Only)",
+                "content": "The beast has advantage on an attack roll against a creature if at least one of the beast's allies is within 5 feet of the creature and the ally isn't incapacitated."
+            },
+            {
+                "title": "Water Breathing (Water Only)",
+                "content": "The beast can breathe only underwater."
+            }
+        ],
+        "actions": [
+            {
+                "title": "Multiattack",
+                "content": "The beast makes a number of attacks equal to half this spell's level (rounded down)."
+            },
+            {
+                "title": "Maul",
+                "content": "Melee Weapon Attack: your spell attack modifier to hit, reach 5 ft., one target. Hit: 1d8 + 4 + the spell's level piercing damage."
+            }
+        ],
+        "bonus_actions": [],
+        "reactions": [],
+        "legendary_actions": [],
+        "mythic_actions": []
+    }
+]
