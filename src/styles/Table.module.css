@@ -24,10 +24,11 @@ caption {
     font-size: 90%;
     margin-bottom: 10px;
 }
-.table th {
+.table > thead > tr > th  {
     background: #fff;
     padding: 8px;
-    border-bottom: 1px solid #1a1a1a;
+    border-bottom: 10px solid #1a1a1a;
+    border-image: url(../assets/Pencil_Border.PNG) 10% repeat;
     font-weight: bold;
     text-align: left;
 }
@@ -49,11 +50,12 @@ caption {
     background-position: center right;
   }
   */
-.table td {
-    border-top: 1px solid #ddd;
+.table > tbody > tr > td {
+    border-top: 5px solid #ddd;
+    border-image: url(../assets/Pencil_Border_Grey.PNG) 10% repeat;
     padding: 8px 20px;
 }
-.table tbody tr:first-child td {
+.table > tbody > tr:first-child > td {
     border-top: none;
 }
 /*

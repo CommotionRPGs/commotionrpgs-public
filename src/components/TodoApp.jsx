@@ -1,7 +1,4 @@
-import Navbar from '@/components/Navbar'
-import Modal from '@/components/Modal';
-import Form from '@/components/Form'
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { useEffect } from 'react'
 import { useAuthStore, useDBAuthStore } from '@/context/authStore';
 
@@ -16,8 +13,11 @@ import SinglePage from '@/routes/SinglePage';
 import ProtectedRoute from '@/components/ProtectedRoute';
 import Spells from '@/routes/Spells';
 import Admin from '@/routes/Admin';
-import SpellAdminPanel from '@/components/SpellAdminPanel';
+import SpellAdminPanel from '@/components/admin/SpellAdminPanel';
+import MonsterAdminPanel from './admin/MonsterAdminPanel';
 import Bestiary from '@/routes/Bestiary';
+import ProfilePanel from '@/components/profile/ProfilePanel';
+import ProfilePlayersPanel from '@/components/profile/ProfilePlayersPanel';
 
 function TodoApp() {
     const user = useAuthStore((state) => state.user)
@@ -25,7 +25,7 @@ function TodoApp() {
 
     useEffect(() => {
         if (user) {
-            console.log(user)
+            //console.log(user)
             dbLogin(user.access_token)
         }
     }, [user])
@@ -48,17 +48,20 @@ function TodoApp() {
                 <Route path="about" element={<About />}>
                     <Route path=":slug" element={<SinglePage />} />
                 </Route>
-                {/*<Route path="login" element={<Login />} />*/}
-                <Route
-                    path="profile" 
-                    element={<Profile />} 
-                />
+                <Route path="profile" element={<Profile />} >
+                    <Route index element={<Navigate to="overview"/>} />
+                    <Route path="players" element={<ProfilePlayersPanel />} />
+                    <Route path=":tab" element={<ProfilePanel />} />
+                </Route>
                 <Route path="admin" element={
                     <ProtectedRoute allowedTypes={['admin']}>
                         <Admin />    
                     </ProtectedRoute>
                 }>
+                    <Route index element={<Navigate to="general"/>}/>
                     <Route path="spells" element={ <SpellAdminPanel /> }/>
+                    <Route path="monsters" element={ <MonsterAdminPanel /> }/>
+                    <Route path="general" element={<div>General</div>} />
                 </Route>
                 <Route path="*" element={<NotMatch />} />    
             </Route>

@@ -24,14 +24,16 @@ const authStore = (set) => ({
     login: async (credentials) => {
         //const access_token = 
         await authApi.login(credentials)
-        .then((access_token) => {
-            //console.log("stored access token: ", access_token)
-            const payload = decodeJwt(access_token)
+        .then((result) => {
+            console.log("result: ", result)
+            const payload = decodeJwt(result.access_token)
             set(() => ({
                 user: {
                     name: payload.username,
+                    email: result.email,
+                    theme: result.theme,
                     account_type: payload.account_type,
-                    access_token: access_token
+                    access_token: result.access_token
                 }
             }))
         }, (err) => {
@@ -48,13 +50,15 @@ const authStore = (set) => ({
     },
     register: async (newUser) => {
         await authApi.register(newUser)
-        .then((access_token) => {
-            const payload = decodeJwt(access_token)
+        .then((result) => {
+            const payload = decodeJwt(result.access_token)
             set(() => ({
                 user: {
                     name: payload.username,
+                    email: result.email,
+                    theme: result.theme,
                     account_type: payload.account_type,
-                    access_token: access_token
+                    access_token: result.access_token
                 }
             }))
         }, (err) => {

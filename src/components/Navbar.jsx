@@ -7,7 +7,7 @@ import { FiMenu } from 'react-icons/fi'
 
 const links = [
     { path: '/', text: 'Home' },
-    { path: 'about', text: 'About' },
+    //{ path: 'about', text: 'About' },
     { path: 'spells', text: 'Spellbook' },
     { path: 'bestiary', text: 'Bestiary' },
     { path: 'profile', text: 'Profile' },

@@ -1,4 +1,4 @@
-import TodoItem from '@/components/TodoItem'
+import TodoItem from '@/components/todo/TodoItem'
 import { useContext} from 'react'
 import { useTodosContext } from '@/context/TodosContext';
 import { useTodosStore } from '@/context/todosStore';

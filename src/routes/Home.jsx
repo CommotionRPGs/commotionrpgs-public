@@ -1,5 +1,5 @@
 import Header from '@/components/Header'
-import TodosLogic from '@/components/TodosLogic'
+import TodosLogic from '@/components/todo/TodosLogic'
 
 const Home  = () => {
     return (

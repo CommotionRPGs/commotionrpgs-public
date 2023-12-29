@@ -1,8 +1,20 @@
+.admin {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
 .iconBtn {
     height: 1.25rem;
     width: 1.25rem;
+    cursor: pointer;
 }
 .iconBtn:hover {
     color: gray;
 }
-
+.borderImageTest {
+    height: 100px;
+    width: 100%;
+    border: 10px solid red;
+    border-image: url(../assets/Pencil_Border.PNG) 10% repeat;
+    border-radius: 50%;
+}

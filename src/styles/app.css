@@ -3,11 +3,17 @@
     margin: 0;
     padding: 0;
 }
+/*@font-face {
+    font-family: Schoolbell;
+    src: url(https://fonts.googleapis.com/css?family=Schoolbell&v1);
+}*/
 body {
-    font-family: "Segoe UI", sans-serif;
+    /*font-family: "Segoe UI", sans-serif;*/
+    font-family: Schoolbell, arial, serif;
     line-height: 1.4;
     color: #000;
     background: #fff;
+    /*background: #d7bea6;*/
     height: 100vh;
     font-weight: 400;
 }

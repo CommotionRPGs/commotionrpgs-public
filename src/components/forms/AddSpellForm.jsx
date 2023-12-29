@@ -343,7 +343,8 @@ const AddSpellForm = ({ formPrefill, handleFormSubmit, handleFormCancel}) => {
                 description: [{
                     title: "untitled",
                     content: "",
-                }]
+                }],
+                concentration: spellData.duration.toLowerCase().indexOf('concentration') !== -1? true : false
             })
         }
     }, [])
@@ -481,6 +482,19 @@ const AddSpellForm = ({ formPrefill, handleFormSubmit, handleFormCancel}) => {
                         >
                         </input>    
                     </div>
+                    {spellData.casting_time.toLowerCase().indexOf('reaction') != -1 &&
+                        <div
+                            className={styles.inputWrapper}
+                        >
+                            <input
+                                name='reaction_condition'
+                                //placeholder="Add the spell's material components"
+                                type="text"
+                                value={spellData.reaction_condition? spellData.reaction_condition : ''}
+                                onChange={handleChange}
+                            />
+                        </div>
+                    }
                 </div>
                 <label><h4>Range:</h4></label>
                 <div
@@ -539,7 +553,7 @@ const AddSpellForm = ({ formPrefill, handleFormSubmit, handleFormCancel}) => {
                         flexDirection: 'row',
                     }}
                 >
-                    <Select
+                    <CreatableSelect
                         /*unstyled*/
                         name="duration"
                         options={durationOptions}
@@ -552,7 +566,10 @@ const AddSpellForm = ({ formPrefill, handleFormSubmit, handleFormCancel}) => {
                         placeholder={"Choose a level"}
                         className='basic-multi-select'
                         classNamePrefix='select'
-                        value={durationOptions.filter((option) => option.value === spellData.duration)}
+                        value={{
+                            value: spellData.duration,
+                            label: spellData.duration
+                        }}
                         onChange={handleChange}
                     />
                     <div

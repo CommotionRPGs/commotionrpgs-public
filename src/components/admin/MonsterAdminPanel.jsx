@@ -22,7 +22,7 @@ const MonsterAdminPanel = () => {
     ]
     return (
         <div>
-            
+            Monster Admin Panel
         </div>
     )
 }

@@ -1,13 +1,15 @@
 import TableLogic from '@/components/table/TableLogic';
 import spells from '@/data/allSpells.json'
 import { useSpellStore } from '@/context/spellStore';
-import { BiSolidError } from "react-icons/bi";
+import { BiSolidError, BiBookAdd } from "react-icons/bi";
 import { useState, useEffect } from 'react';
 import { FaEdit } from "react-icons/fa";
 import styles from "@/styles/Admin.module.css"
 import BetterModal from '@/components/BetterModal';
-import AddSpellForm from './forms/AddSpellForm';
+import AddSpellForm from '../forms/AddSpellForm';
 import { useDBAuthStore } from '@/context/authStore';
+import { capitalizeTitle } from '@/utils/utils';
+import { sources } from '@/data/configs/dataConfigs';
 
 const SpellAdminPanel = () => {
     const uploadedSpells = useSpellStore((state) => state.spells)
@@ -85,7 +87,7 @@ const SpellAdminPanel = () => {
         setData(spells.reduce((filtered, spell) => {
             const errors = checkSpellData(spell)
             if (errors.length > 0 && uploadedSpells.find((uploadedSpell) => uploadedSpell.id === spell.id) === undefined) {
-                filtered.push({level: spell.level, name: spell.name, errors: errors, data: spell})
+                filtered.push({level: spell.level, name: spell.name, errors: errors, source: spell.source, data: spell})
             }
             //console.log(filtered[filtered.length-1])
             return filtered;
@@ -93,8 +95,11 @@ const SpellAdminPanel = () => {
     }, [uploadedSpells])
 
     const editSpellHandler = (spell) => {
-        console.log(spell.data)
+        //console.log(spell.data)
         setEditingSpell({ spell: ({...spell.data, description: []})})
+    }
+    const addSpellHandler = () => {
+        setEditingSpell(true)
     }
     
     const formSubmitHandler = (e, content) => {
@@ -125,17 +130,29 @@ const SpellAdminPanel = () => {
         setEditingSpell(false)
     }
 
+    //console.log(data[0])
+
     return (
         <div>
             <BetterModal openModal={editingSpell} setOpenModal={setEditingSpell}>
                 <AddSpellForm formPrefill={editingSpell.spell} handleFormCancel={formCancelHandler} handleFormSubmit={formSubmitHandler} />
             </BetterModal>
+            <div
+                style={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    justifyContent: 'flex-end'
+                }}
+            >
+                <BiBookAdd className={styles.iconBtn} onClick={() => addSpellHandler()} />
+            </div>
             <TableLogic 
                 data={data}
                 columns={[
                     { label: "Level", accessor: "level", sortable: true },
                     { label: "Name", accessor: "name", sortable: true },
                     { label: "Errors", accessor: "errors", sortable: true},
+                    { label: "Source", accessor: "source", sortable: true },
                     { label: "", accessor: 'buttons', sortable: false}
                     //{ label: "School", accessor: "school", sortable: true },
                     //{ label: "Ritual", accessor: "ritual", sortable: true },
@@ -143,7 +160,6 @@ const SpellAdminPanel = () => {
                     //{ label: "Range", accessor: "range", sortable: true },
                     //{ label: "Duration", accessor: "duration", sortable: true },
                     //{ label: "Components", accessor: "components", sortable: false },
-                    //{ label: "Source", accessor: "source", sortable: true },
                 ]}
                 options={{
                     columns: {
@@ -154,6 +170,7 @@ const SpellAdminPanel = () => {
                     display: {
                         level: ((data) => data['level'] ? data['level'] : 'Cantrip'),
                         buttons: ((data) => <FaEdit className={styles.iconBtn} onClick={() => editSpellHandler(data)} />),
+                        source: ((data) => capitalizeTitle(data.source)),
                         errors: ((data) => 
                             <div
                                 style={{
@@ -168,6 +185,15 @@ const SpellAdminPanel = () => {
                             </div>
                         ),
                         expander_content: ((data) => data['errors'].map((error, i) => <p key={`error_${i}`}>{error}</p>))    
+                    },
+                    filter: {
+                        name: {
+                            type: 'text',
+                        },
+                        source: {
+                            type: 'multiSelect',
+                            options: sources.map((source) => ({ value: source, label: capitalizeTitle(source)}))
+                        },
                     }
                 }}
             />

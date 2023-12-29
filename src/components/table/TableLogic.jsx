@@ -31,6 +31,10 @@ const TableLogic = ({ data, columns, options = {} }) => {
         //console.log('initial state obj', initialStateObj)
         return initialStateObj
     });
+    const [sort, setSort] = useState({
+        sortField: 'level',
+        sortOrder: 'asc'
+    })
 
     const textFilter = (filter, item) => item.toLowerCase().indexOf(filter.toLowerCase()) !== -1;
 
@@ -38,20 +42,15 @@ const TableLogic = ({ data, columns, options = {} }) => {
         ? (() =>  { for (let i = 0; i < item.length; i++) { if (filter.indexOf(item[i].toLowerCase()) !== -1) return true } return false })()
         : filter.indexOf(item.toLowerCase()) !== -1;
 
-    const rangeFilter = (filter, item) => (filter.upper === '' || item <= filter.upper) && (!filter.lower || item >= filter.lower);
+    const rangeFilter = (filter, item) => (!filter.upper || filter.upper === '' || item <= filter.upper) && (!filter.lower || item >= filter.lower);
 
-    useEffect(() => {
-        //console.log('Table data updated', data)
-        setTableData(data)
-    }, [data])
-
-    const handleSorting = (sortField, sortOrder) => {
+    const handleSorting = ({sortField, sortOrder}, data) => {
         //console.log(sortField, sortOrder)
         if (sortField) {
-            const sorted = [...tableData].sort((a, b) => {
+            const sorted = [...data].sort((a, b) => {
+                if (a[sortField] === null && b[sortField] === null) return 0;
                 if (a[sortField] === null) return 1;
                 if (b[sortField] === null) return -1;
-                if (a[sortField] === null && b[sortField] === null) return 0;
                 const primarySort = a[sortField].toString().trim().localeCompare(b[sortField].toString().trim(), "en", {
                     numeric: true,
                 }) * (sortOrder === "asc" ? 1 : -1)
@@ -62,9 +61,15 @@ const TableLogic = ({ data, columns, options = {} }) => {
                 }
                 return primarySort;
             });
-            setTableData(sorted);
+            return sorted //setTableData(sorted);
         }
+        return data
     };
+
+    useEffect(() => {
+        //console.log('Table data updated', data)
+        setTableData(handleSorting(sort, data))
+    }, [data, sort])
 
     const filteredTableData = useMemo(() => {
         //console.log(searchTerm)
@@ -107,6 +112,8 @@ const TableLogic = ({ data, columns, options = {} }) => {
         return filteredData;
     }, [tableData, searchTerm])
 
+    //console.log(searchTerm)
+
     return (
         <>
             {options.filter && <div className={styles.table_search}>
@@ -116,7 +123,7 @@ const TableLogic = ({ data, columns, options = {} }) => {
                 {/*<caption>
                     Developers currently enrolled in this course, column headers are sortable.
                 </caption>*/}
-                <TableHead columns={columns} handleSorting={handleSorting} options={options.columns ? options.columns : {}}/>
+                <TableHead columns={columns} handleSorting={(sortField, sortOrder) => setSort({sortField, sortOrder})} options={options.columns ? options.columns : {}}/>
                 <TableBody columns={columns} tableData={filteredTableData} rowCallbacks={options.display} columnOptions={options.columns ? options.columns : ({})} />
             </table>
         </>

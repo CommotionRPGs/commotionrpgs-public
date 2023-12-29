@@ -10,10 +10,10 @@ const Bestiary = () => {
     const dbUser = useDBAuthStore((state) => state.dbUser)
 
     useEffect(() => {
-        if (monsters.length < 1) {
+        if (monsters.length < 1 && dbUser) {
             loadMonsters(dbUser)
         }
-    }, [])
+    }, [dbUser])
 
     return (
         <div>

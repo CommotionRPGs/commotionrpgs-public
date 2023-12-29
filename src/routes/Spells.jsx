@@ -5,7 +5,7 @@ import BetterModal from '@/components/BetterModal';
 import TableLogic from '@/components/table/TableLogic';
 import AddSpellForm from '@/components/forms/AddSpellForm';
 import AddMonsterForm from '@/components/forms/AddMonsterForm';
-import { MdOutlineContentCut } from 'react-icons/md';
+import SpellDescription from '@/components/descriptions/SpellDescription';
 import { useMonsterStore } from '@/context/monsterStore';
 import { useSpellStore } from '@/context/spellStore';
 import { NavLink } from 'react-router-dom';
@@ -32,14 +32,11 @@ const Spells  = () => {
     })
 
     useEffect(() => {
-        if (spells.length === 0) {
-            // console.log('dbUser: ', dbUser)
+        //console.log("dbUser effect has been triggered")
+        if (spells.length === 0 && dbUser) {
             loadSpells(dbUser)
-            /*.then(
-                console.log(spells)
-            )*/
         }
-    }, [])
+    }, [dbUser])
 
     const handleOpenModal = (modalType) => {
         setOpenModal({
@@ -170,7 +167,8 @@ const Spells  = () => {
                         "components": ((data) => data['components'] ? data['components'].join(', ') : '--'),
                         "expander_content": ((data) => {
                             return (
-                                data['description'].map((p, i) => {
+                                <SpellDescription spellData={data} descriptionOnly/>
+                                /*data['description'].map((p, i) => {
                                     switch(p.title) {
                                         case 'list':
                                             //console.log("list section", p)
@@ -202,7 +200,7 @@ const Spells  = () => {
                                                 </p>
                                             )
                                     }
-                                })
+                                })*/
                                 /*data["description"].map((paragraph) => 
                                     <p className="clickable-row-expansion" key={uuidv4()}>
                                         {paragraph["title"] !== 'untitled' && 
