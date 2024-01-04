@@ -34,6 +34,7 @@ export async function getRefs(access_token) {
 
     try {
         const referralCodes = await authSession.functions.getRefs()
+        console.log(referralCodes)
         return referralCodes;
     } catch(err) {
         console.log('Failed to retrieve referral codes')

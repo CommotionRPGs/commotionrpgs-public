@@ -32,7 +32,7 @@ const TableLogic = ({ data, columns, options = {} }) => {
         return initialStateObj
     });
     const [sort, setSort] = useState({
-        sortField: 'level',
+        sortField: columns[0].accessor, //'level',
         sortOrder: 'asc'
     })
 
