@@ -1,10 +1,10 @@
 import TableLogic from '@/components/table/TableLogic';
-import spells from '@/data/allSpells.json'
+//import spells from '@/data/allSpells.json'
 import { useSpellStore } from '@/context/spellStore';
 import { BiSolidError, BiBookAdd } from "react-icons/bi";
 import { useState, useEffect } from 'react';
 import { FaEdit } from "react-icons/fa";
-import styles from "@/styles/Admin.module.css"
+import styles from "@/styles/routes/Admin.module.css"
 import BetterModal from '@/components/BetterModal';
 import AddSpellForm from '../forms/AddSpellForm';
 import { useDBAuthStore } from '@/context/authStore';
@@ -12,8 +12,9 @@ import { capitalizeTitle } from '@/utils/utils';
 import { sources } from '@/data/configs/dataConfigs';
 
 const SpellAdminPanel = () => {
-    const uploadedSpells = useSpellStore((state) => state.spells)
+    const spells = useSpellStore((state) => state.spells)
     const addSpell = useSpellStore((state) => state.addSpell)
+    const editSpell = useSpellStore((state) => state.editSpell)
     const dbUser =  useDBAuthStore((state) => state.dbUser)
     const [editingSpell, setEditingSpell] = useState(false)
     //const [selectedSpell, setSelectedSpell] = useState(false)
@@ -86,17 +87,17 @@ const SpellAdminPanel = () => {
     useEffect(() => {
         setData(spells.reduce((filtered, spell) => {
             const errors = checkSpellData(spell)
-            if (errors.length > 0 && uploadedSpells.find((uploadedSpell) => uploadedSpell.id === spell.id) === undefined) {
+            if (true || errors.length > 0) {
                 filtered.push({level: spell.level, name: spell.name, errors: errors, source: spell.source, data: spell})
             }
-            //console.log(filtered[filtered.length-1])
+            //console.log(filtered)
             return filtered;
         }, []))
-    }, [uploadedSpells])
+    }, [spells])
 
     const editSpellHandler = (spell) => {
         //console.log(spell.data)
-        setEditingSpell({ spell: ({...spell.data, description: []})})
+        setEditingSpell({ spell: spell.data})
     }
     const addSpellHandler = () => {
         setEditingSpell(true)
@@ -106,7 +107,12 @@ const SpellAdminPanel = () => {
         e.preventDefault()
         const spell = content;
         setEditingSpell(false)
-        addSpell(dbUser, spell)
+        if (editingSpell.spell) {
+            editSpell(dbUser, spell)
+        }
+        else {
+            addSpell(dbUser, spell)
+        }
     }
 
     /*
@@ -133,7 +139,7 @@ const SpellAdminPanel = () => {
     //console.log(data[0])
 
     return (
-        <div>
+        <>
             <BetterModal openModal={editingSpell} setOpenModal={setEditingSpell}>
                 <AddSpellForm formPrefill={editingSpell.spell} handleFormCancel={formCancelHandler} handleFormSubmit={formSubmitHandler} />
             </BetterModal>
@@ -161,6 +167,7 @@ const SpellAdminPanel = () => {
                     //{ label: "Duration", accessor: "duration", sortable: true },
                     //{ label: "Components", accessor: "components", sortable: false },
                 ]}
+                pagination={{ pageSize: 15 }}
                 options={{
                     columns: {
                         buttons: {
@@ -200,7 +207,7 @@ const SpellAdminPanel = () => {
             {/*<TableLogic 
                 data={spells}
             />*/}
-        </div>
+        </>
     )
 }
 export default SpellAdminPanel;

@@ -31,7 +31,7 @@ const authStore = (set) => ({
                 user: {
                     name: payload.username,
                     email: result.email,
-                    theme: result.theme,
+                    theme: result.userData? result.userData.theme : 'default',
                     account_type: payload.account_type,
                     access_token: result.access_token
                 }
@@ -56,7 +56,7 @@ const authStore = (set) => ({
                 user: {
                     name: payload.username,
                     email: result.email,
-                    theme: result.theme,
+                    theme: result.userData? result.userData.theme : 'default',
                     account_type: payload.account_type,
                     access_token: result.access_token
                 }
@@ -65,6 +65,15 @@ const authStore = (set) => ({
             console.log("Registration failed")
             console.error(err)
         })
+    },
+    changeTheme: (jwt, newTheme) => {
+        authApi.updateUserData(jwt, { key: "theme", value: newTheme})
+        set((state) => ({
+            user: {
+                ...state.user,
+                theme: newTheme
+            }
+        }))
     }
 })
 

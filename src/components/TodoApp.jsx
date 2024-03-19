@@ -18,6 +18,8 @@ import MonsterAdminPanel from './admin/MonsterAdminPanel';
 import Bestiary from '@/routes/Bestiary';
 import ProfilePanel from '@/components/profile/ProfilePanel';
 import ProfilePlayersPanel from '@/components/profile/ProfilePlayersPanel';
+import PageTurn from '@/routes/PageTurn';
+import CharClasses from '@/routes/CharClassses';
 
 function TodoApp() {
     const user = useAuthStore((state) => state.user)
@@ -38,6 +40,9 @@ function TodoApp() {
                 </ProtectedRoute>
             }>
                 <Route index element={<Home />} />
+                <Route path="classes" element={<CharClasses />}>
+                    <Route path=":subclass"/>
+                </Route>
                 <Route path="spells">
                     <Route index element={<Spells />} />
                     <Route path=":spell" element={<SinglePage />}/>
@@ -48,6 +53,7 @@ function TodoApp() {
                 <Route path="about" element={<About />}>
                     <Route path=":slug" element={<SinglePage />} />
                 </Route>
+                <Route path="pageturn" element={<PageTurn />} />
                 <Route path="profile" element={<Profile />} >
                     <Route index element={<Navigate to="overview"/>} />
                     <Route path="players" element={<ProfilePlayersPanel />} />

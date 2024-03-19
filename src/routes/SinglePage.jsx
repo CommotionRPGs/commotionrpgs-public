@@ -3,6 +3,7 @@ import { useParams, NavLink, useLocation } from 'react-router-dom'
 import { useSpellStore } from '@/context/spellStore';
 import { AiOutlineLeft } from 'react-icons/ai'
 import SpellDescription from '@/components/descriptions/SpellDescription';
+import styles from '@/styles/routes/SinglePage.module.css'
 
 const aboutData = [
     {
@@ -45,11 +46,7 @@ const SinglePage = () => {
     const { title, description } = setContent()
 
     return (
-        <div className="main_content" style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '1rem'
-        }}>
+        <div className={`${styles.singlePage} paper page`} >
             {spell && (
                 <div>
                     <AiOutlineLeft

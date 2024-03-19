@@ -1,4 +1,4 @@
-import styles from '@/styles/Form.module.css'
+import styles from '@/styles/components/Form.module.css'
 import { useState, useEffect } from 'react'
 
 const FormTabItem = ({ tabs, contents }) => {

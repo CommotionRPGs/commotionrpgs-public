@@ -1,5 +1,5 @@
 import { useAuthStore } from "@/context/authStore";
-import styles from '@/styles/Profile.module.css';
+import styles from '@/styles/routes/Profile.module.css';
 import { useState, useEffect } from "react";
 import { capitalize } from "@/utils/utils";
 import { FaUsers, FaUser, FaEye } from "react-icons/fa";
@@ -15,8 +15,14 @@ const Profile = () => {
         { label: 'Players', value: "players", symbol: <FaUsers style={{width: '2rem', height: '2rem'}} />, hide: user.accountType === 'player'}
     ]
 
+    const themeNames = {
+        'default': 'Default',
+        'ryoko': "Ryoko's Teahouse",
+        'heliana': "Heliana's Tavern"
+    }
+
     return (
-        <div className={styles.profile}>
+        <div className={`${styles.profile} paper page`}>
             {/*<Header>
                 <h1>Profile page</h1>
             </Header>*/}
@@ -35,7 +41,7 @@ const Profile = () => {
                     </div>
                     <div className={styles.userDetailContainer} >
                         <div className={styles.value} >
-                            {user.theme}
+                            {themeNames[user.theme]}
                         </div>
                         <div className={styles.label} >
                             THEME

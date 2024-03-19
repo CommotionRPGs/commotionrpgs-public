@@ -8,6 +8,7 @@ import { FiMenu } from 'react-icons/fi'
 const links = [
     { path: '/', text: 'Home' },
     //{ path: 'about', text: 'About' },
+    { path: 'classes', text: 'Classes'},
     { path: 'spells', text: 'Spellbook' },
     { path: 'bestiary', text: 'Bestiary' },
     { path: 'profile', text: 'Profile' },
@@ -136,7 +137,7 @@ function Navbar() {
             </nav>
             {user && (
                 <div className="logout">
-                    <p>{user.name}</p>
+                    {user.name}
                     {<button onClick={handleLogout}>Logout</button>}
                 </div>
             )}

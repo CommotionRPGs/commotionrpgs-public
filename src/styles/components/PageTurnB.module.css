@@ -1,0 +1,150 @@
+/* entire container, keeps perspective */
+.flipContainer {
+    position: absolute;
+    bottom: 0;
+    perspective: 100vw;
+    perspective-origin: center top;
+    /* fixes the perspective of the transform transition on the top center of the .flip-container */
+    .flipper {
+        transform-origin: 0% 50%;
+    }
+}
+
+/* flip the pane when clicked */
+.flipContainer.flip .flipper {
+    transform: rotateX(180deg);
+    transform-origin: 100% 50%;
+}
+
+/* in mobile view, the pages flip upwards and therefore need to take up half the height. */
+.flipContainer, .front, .back {
+    height: 50%;
+}
+
+/* determines the speed of the transition */
+.flipper {
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    transform-origin: 100% 50%;
+    position: relative;
+}
+
+/* hides the face of the page that is facing away from the reader */ 
+.front, .back {
+    backface-visibility: hidden;
+    position: absolute;
+    /*background-color: white;*/
+}
+
+/* when the back is reversed, you have to rotate is so that when it is displayed it isn't backwards */
+.back {
+    transform: rotate3D(0, 1, 0, -180deg);
+    transform-origin: center;
+    .article.top {
+        transform: rotate(180deg);
+    }
+}
+
+/* separate rules for desktop views */
+@media (min-width: 450px) {
+    .flipContainer {
+        /*height: 1337px;*/
+        height: 100%;
+        /*position: absolute;*/
+        float: left;
+        right: 0;
+        top: 0;
+        perspective: 100vw;
+        perspective-origin: left top;
+        .flipper {
+            transform-origin: 0% 50%;
+        }
+    }
+    .flipContainer {
+        width: 100%;
+    }
+    .front, .back {
+        width: 100%;
+        height: fit-content;
+    }
+    .flipContainer.flip .flipper {
+        transform: rotateY(-90deg);
+        transform-origin: 0% 0%;
+    }
+    .scale {
+        /*height: fit-content;*/
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+        transform-origin: 0% 0%;
+    }
+    .front, .back {
+        backface-visibility: hidden;
+        position: absolute;
+        /*float: left;*/
+        /*background-color: #e5e9db;*/
+        /*height: 100%;*/
+        /*cursor: pointer;*/
+    }
+    .front {
+        /* for firefox 31 */
+        transform: rotateY(0deg);
+        .article {
+            border-radius: 0 1rem 1rem 0;
+            -mox-border-radius: 0 1rem 1rem 0;
+        }
+    }
+    .back {
+        transform: rotateY(180deg);
+        /*-webkit-transform: translateZ(1px);*/
+        .article {
+            border-radius: 1rem 0 0 1rem;
+            -moz-border-radius: 1rem 0 0 1rem;
+        }
+        .article.top {
+            transform: rotate(0deg);
+        }
+    }
+
+    .flipContainer.bot .flipper {
+        transition: none;
+    }
+
+    .flipContainer.bot .scale {
+        transition: none;
+    }
+
+    .flipContainer.top .flipper {
+        transform: rotateY(-90deg);
+        transition: none;
+    }
+
+    .flipContainer.top .scale {
+        transform: scale(0.5, 1);
+        transition: none;
+    }
+
+    .flipContainer.bt .flipper {
+        transform: rotateY(-90deg);
+    }
+
+    .flipContainer.bt .scale {
+        transform: scale(0.5, 1);
+    }
+
+    .flipContainer.tb .scale {
+        transform: scale(1, 1);
+    }
+}
+
+.page {
+    position: relative;
+    /*background-color: green;*/
+    height: 100%;
+}
+
+.article {
+    padding: 5px;
+    box-shadow: rgba(0, 0, 0, 0.35) 5px 5px 15px -5px,
+        inset 20px 0 30px -15px rgba(0, 0, 0, 0.35);
+}

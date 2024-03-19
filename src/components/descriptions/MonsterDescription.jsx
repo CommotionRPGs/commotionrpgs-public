@@ -1,9 +1,12 @@
 import { skill_to_ability } from '@/data/configs/dataConfigs'
-import styles from '@/styles/Description.module.css'
+import styles from '@/styles/components/Description.module.css'
 import { createRef, useEffect } from 'react'
+import Header from '@/components/basic/Header'
+import { useAuthStore } from '@/context/authStore'
 
 const MonsterDescription = ({ monsterData }) => {
     const container = createRef()
+    const theme = useAuthStore(state => state.user.theme)
     /*{
         "id": 1,
         "name": "Bandit",
@@ -57,9 +60,14 @@ const MonsterDescription = ({ monsterData }) => {
         const numOfChildren = container.current.children.length
         let childrenHeight = 0
         const containerHeight = container.current.scrollHeight
+        const dividerHeight = {
+            default: 22,
+            heliana: 3,
+            ryoko: 12
+        }[theme]
         for (let i = 0; i < numOfChildren; i++) {
             const height = container.current.children.item(i).scrollHeight
-            childrenHeight += container.current.children.item(i).className === styles.divider ? 22 : height
+            childrenHeight += container.current.children.item(i).className === styles.divider ? dividerHeight : height
         }
 
         //console.log(`Total Children Height: ${childrenHeight}`)
@@ -110,22 +118,28 @@ const MonsterDescription = ({ monsterData }) => {
         return (
             <div>
                 {dVulnerabilities.length !== 0 &&
-                    <span>
-                        <strong>Damage Vulnerabilities </strong>
-                        {dVulnerabilities.join(', ')}
-                    </span>
+                    <div>
+                        <span>
+                            <strong>Damage Vulnerabilities </strong>
+                            {dVulnerabilities.join(', ')}
+                        </span>
+                    </div>
                 }
                 {dResistances.length !== 0 &&
-                    <span>
-                        <strong>Damage Resistances </strong>
-                        {dResistances.join(', ')}
-                    </span>
+                    <div>
+                        <span>
+                            <strong>Damage Resistances </strong>
+                            {dResistances.join(', ')}
+                        </span>
+                    </div>
                 }
                 {dImmunities.length !== 0 &&
-                    <span>
-                        <strong>Damage Immunities </strong>
-                        {dImmunities.join(', ')}
-                    </span>
+                    <div>
+                        <span>
+                            <strong>Damage Immunities </strong>
+                            {dImmunities.join(', ')}
+                        </span>
+                    </div>
                 }
             </div>
         )
@@ -175,7 +189,9 @@ const MonsterDescription = ({ monsterData }) => {
                 ref={container}
             >
                 <div>
-                    <h2>{monsterData.name}</h2>
+                    <Header variant={1}>
+                        <h3>{monsterData.name}</h3>
+                    </Header>
                     <span><i>{`${capitalize(monsterData.size)} ${monsterData.creature_type}${monsterData.alignment && `, ${monsterData.alignment}`}`}</i></span>
                 </div>
                 <div className={styles.divider} />
@@ -253,13 +269,7 @@ const MonsterDescription = ({ monsterData }) => {
                         {monsterData.languages.join(', ')}
                     </span>
                 </div>
-                <div
-                    style={{
-                        display: 'flex',
-                        flexDirection: 'row',
-                        justifyContent: 'space-between',
-                    }}
-                >
+                <div className={styles.crpbContainer}>
                     <div>
                         <span>
                             <strong>Challenge </strong>

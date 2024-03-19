@@ -14,11 +14,12 @@ const spellStore = (set) => ({
     getSpellById: () => {
         return;
     },
-    editSpell: (id, spell) => {
+    editSpell: (user, spell) => {
         // console.log(`Editing spell ${spell.name}...`)
+        spellApi.editSpell(user, spell)
         set((state) => ({
             spells: state.spells.map(s => {
-                return s.id === id ? spell : s
+                return s.id === spell.id ? spell : s
             })
         }))
     },

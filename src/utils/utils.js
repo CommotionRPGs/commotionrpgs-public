@@ -16,3 +16,24 @@ export const decodeJwt = (token) => {
     return JSON.parse(decodedString)
     //console.log(decodedstring)
 }
+
+export const mod = (x, y) => {
+    return ((x%y) + y)%y;
+}
+
+export const numSuffix = (x) => {
+    const tens = x%100
+    switch (x%10) {
+        case 1: 
+            if (tens < 10 || tens > 20)
+                return `${x}st`
+        case 2: 
+            if (tens < 10 || tens > 20)
+                return `${x}nd`
+        case 3: 
+            if (tens < 10 || tens > 20)
+                return `${x}rd`
+        default:
+            return `${x}th`
+    }
+}

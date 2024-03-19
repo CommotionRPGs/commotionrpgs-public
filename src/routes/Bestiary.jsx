@@ -1,5 +1,6 @@
 import TableLogic from "@/components/table/TableLogic";
-import Header from "@/components/Header";
+import Header from "@/components/basic/Header";
+import MonsterDescription from "@/components/descriptions/MonsterDescription";
 import { useEffect } from "react";
 import { useMonsterStore } from "@/context/monsterStore";
 import { useDBAuthStore } from "@/context/authStore";
@@ -17,17 +18,27 @@ const Bestiary = () => {
 
     return (
         <div>
-            <Header>
-                <h1>The Bestiary</h1>
-                <p>Sortable table of spells using React</p>
-                {/*<NavLink to="/spells/acid-splash">Acid Splash</NavLink>*/}
-            </Header>
             <TableLogic
                 data={monsters}
                 columns={[
                     { label: "CR", accessor: "cr", sortable: true },
                     { label: "Name", accessor: "name", sortable: true },
                 ]}
+                pagination={{ pageSize: 20 }}
+                options={{
+                    title: (<Header>
+                                <h1>The Bestiary</h1>
+                                {/*<NavLink to="/spells/acid-splash">Acid Splash</NavLink>*/}
+                            </Header>
+                        ),
+                    display: {
+                        expander_content: ((data) => {
+                            return (
+                                <MonsterDescription monsterData={data} />
+                            )
+                        })
+                    }
+                }}
             />
         </div>
     )

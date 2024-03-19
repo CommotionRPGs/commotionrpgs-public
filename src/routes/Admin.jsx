@@ -1,7 +1,7 @@
 import { Outlet, NavLink, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
-import styles from '@/styles/Admin.module.css'
-import profileStyles from '@/styles/Profile.module.css'
+import styles from '@/styles/routes/Admin.module.css'
+import profileStyles from '@/styles/routes/Profile.module.css'
 import { FaEye } from 'react-icons/fa'
 import { FaGear } from "react-icons/fa6";
 import { GiMonsterGrasp, GiBoltSpellCast } from 'react-icons/gi'
@@ -35,13 +35,15 @@ const Admin = () => {
     }
 
     return (
-        <div className={styles.admin} >
+        <div className={`${styles.admin} paper page`} >
             <div className={profileStyles.header} >
                 {'Admin - '}     
             </div>
-            <Sidebar 
-                tabs={tabs}
-            />
+            <div style={{ height: 'calc(100% - 150px)'}}>
+                <Sidebar 
+                    tabs={tabs}
+                />
+            </div>
             {/*<div className={profileStyles.body} >
                 <div className={profileStyles.tabBar} >
                     <div className={profileStyles.tabBar} >

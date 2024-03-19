@@ -1,0 +1,250 @@
+[
+    {
+        "name": "Splicer",
+        "class": "Tamer",
+        "description": "Through really tiny stitches, you alter the physiology of your subjec– er... companions, in an unending quest for perfection. Many Splicers delve into the world of adventuring in the hopes of discovering exciting new improvements with which to augment their companions. Your foray into the world of biomancy, whether through wizarding school, working with biosmith artificers, or as the surgical assistant to a mad scientist, has resulted in a singular observation: subjects are much more malleable when they’re psychically bonded to you.",
+        "features_by_level": {
+            "3": {
+                "features": [
+                    "Augment",
+                    "Splicer Spells"
+                ]
+            },
+            "7": {
+                "features": [
+                    "Modular Upgrades"
+                ]
+            },
+            "10": {
+                "features": [
+                    "Battlefield Harvester"
+                ]
+            },
+            "14": {
+                "features": [
+                    "Adrenal Overload"
+                ]
+            }
+        },
+        "features": {
+            "Augment": {
+                "description": [
+                    "You can fiddle with the very essence of your companions, crafting minor improvements and modifications. When you choose this paradigm, you gain 3 splicer points. Each time you gain a level in the tamer class, you gain 1 additional splicer point. You can spend these points to modify your companions with the following augments—features and traits that take effect when you next finish a long rest. Splicer points are shared across all your companions. If a companion is ever released, it loses any augments it had and the splicer points are refunded. Augments can be gained only once unless otherwise stated. See the Splicer Augments table on the next page for more details.",
+                    {
+                        "title": "Surgeon's Tools",
+                        "type": "titledB",
+                        "content": "You also gain proficiency with surgeon’s tools (see page 121). You can spend 1 hour removing all augments from one companion with your surgeon’s tools, causing it to lose all the associated effects. You regain all splicer points spent on that companion and can re-allocate those points as you see fit."
+                    },
+                    {
+                        "title": "Splicer Augments",
+                        "type": "table",
+                        "content": {
+                            "header": [
+                                ["Augment", "Effect Summary", "Splicer Point Cost"]
+                            ],
+                            "body": [
+                                ["Water Breathing", "Can only breathe water", "0"],
+                                ["Amphibious", "Can breathe air and water", "1"],
+                                ["Darkvision", "Gains or extends darkvision", "1"],
+                                ["Extra Limb*", "Can grapple more creatures", "1 per limb"]
+                            ]
+                        }
+                    }
+                ],
+                "levels": [3]
+            },
+            "Splicer Spells": {
+                "description": [
+                    "You learn additional spells when you reach certain levels in this class, as shown in the Splicer Spells table. Each spell counts as a tamer spell for you, but it doesn’t count against the number of tamer spells you know.",
+                    {
+                        "title": "Splicer Spells",
+                        "type": "table",
+                        "content": {
+                            "header": [
+                                ["Tamer Levels", "Spells"]
+                            ],
+                            "body": [
+                                ["3rd", "chameleon skin*, disguise self"],
+                                ["5th", "barkskin, eelskin*"],
+                                ["9th", "mass leech*, zippit!*"],
+                                ["13th", "frogskin*, stoneskin"],
+                                ["17th", "contagion, feverskin"]
+                            ],
+                            "footer": ["*See Appendix B"]
+                        }
+                    }
+                ],
+                "levels": [3, 5, 9, 13, 17]
+            },
+            "Modular Upgrades": {
+                "description": [
+                    "You can upgrade each of your companions with exotic organs and appendages. At the start of a long rest, you can choose one of the following upgrades for each of your companions. At the end of the long rest, the biomantic meld completes, and your companion gains the associated action option. The DC for the saving throw equals your tamer spell save DC.",
+                    {
+                        "type": "list",
+                        "content": [
+                            {
+                                "title": "Compelling Plumage",
+                                "type": "titledB",
+                                "content": "Each creature in a 25foot cone that can see your companion must succeed on a Wisdom saving throw or be charmed by your companion’s dazzling display of colour for the next minute. While charmed in this way, the creature is incapacitated and has a speed of 0 feet. The effect ends for an affected creature if it takes any damage, if someone else uses an action to shake the creature out of its stupor, if it no longer has line of sight to the companion, or is ever more than 25 feet away from the companion."
+                            },
+                            {
+                                "title": "Phosphoburst",
+                                "type": "titledB",
+                                "content": "Each other creature in a 10-foot-radius sphere centred on your companion must make a Constitution saving throw against the dizzying burst of light your companion emits. On a failure, a creature takes 2d10 radiant damage and is blinded until the end of its next turn. On a success, a creature takes half as much damage and isn’t blinded."
+                            },
+                            {
+                                "title": "Poison Web",
+                                "type": "titledB",
+                                "content": "Your companion launches an unfurling web of sticky silk in a 20-foot cube originating from it. All surfaces in the area become lined with webbing for the next minute. Each creature that touches one of these surfaces for the first time on its turn or starts its turn doing so must succeed on a Dexterity saving throw or become restrained for the duration, or until it breaks free. A creature restrained by the webs takes 2d4 poison damage when it becomes restrained and at the start of each of its turns. A creature can use its action to make a Strength check against your tamer spell save DC, freeing itself or another creature restrained by this web on a success."
+                            },
+                            {
+                                "title": "Sirenshriek",
+                                "type": "titledB",
+                                "content": "Each other creature in a 15-foot-radius sphere centred on your companion must make an Intelligence saving throw as your companion lets forth a brain-curdling mental shriek. On a failure, a creature takes 3d8 psychic damage and, if it is concentrating on a spell, loses its concentration. On a success, a creature takes half as much damage and makes saving throws to maintain its concentration as normal."
+                            }
+                        ]
+                    },
+                    "Once a companion uses one of these actions, it can’t do so again until it finishes a short or long rest. Starting at 18th level, a companion can use this action twice before a rest ."
+                ],
+                "levels": [7, 18]
+            },
+            "Battlefield Harvester": {
+                "description": [
+                    "You augment your companions with a highly adap- tive mutagen, allowing them to gain the strengths of foes they defeat and confer it to your other compan- ions through a synchronous quantum biomantic link .",
+                    "As an action, you can command your companion to consume the corpse of a non-swarm creature that has been dead for less than 1 minute . Choose one of the consumed creature’s damage resistances, dam- age immunities, or condition immunities (except im- munity to exhaustion). All of your companions gain resistance to one damage type to which the slain creature was resistant or immune, or gain immunity to one condition to which the creature was immune .",
+                    "After you use this feature, you can’t do so again until you finish a long rest. When you use this fea- ture again, your companions lose any benefit they had previously gained from this feature ."
+                ],
+                "levels": [10]
+            },
+            "Adrenal Overload": {
+                "description": [
+                    "As an action, you trigger a hidden, internal switch within your companion, triggering a cascade of rapid mutations that lasts for the next minute, with the following results:",
+                    {
+                        "type": "list",
+                        "content": [
+                            "It immediately grows to Huge size (if it isn’t already).",
+                            "Its weight increases by a factor of 8 per size category increased .",
+                            "It gains temporary hit points equal to ten times your tamer level .",
+                            "Its Strength score increases to 22 (if it isn’t already higher).",
+                            "It gains proficiency in the Athletics skill.",
+                            "It sprouts an appendage with which it can make melee weapon attacks with a reach of 5 feet that deal bludgeoning, piercing, or slashing damage (your choice when you take the action) equal to 3d6 plus its Strength modifier (+6) on a hit .",
+                            "It gains the Multiattack action option: The companion makes three attacks with its appendage ."
+                        ]
+                    },
+                    "After the minute elapses, your companion falls unconscious for 1d4 hours and gains 2 levels of exhaustion . Once you use this feature, you can’t do so again until you finish a long rest."
+                ],
+                "levels": [14]
+            }
+        }
+    },
+    {
+        "name": "Sensei",
+        "class": "Tamer",
+        "description": "Sensei see how a body moves with supernatural acuity, identifying minor changes in form that can turn paltry scuffs into bone-breaking blows. Through meticulous coaching, they unveil the pugilists within their companions, teaching them to dance between enemies’ strikes, upset their foes’ balance, and finish them with lightning fast combinations. Perhaps you yourself were a master of martial arts, but are now too old to fight. Maybe you grew up watching boxers, but always saw the flaws in their technique. Whatever the case, you are a teacher, and your companions are your eager students.",
+        "features_by_level": {
+            "3": {
+                "features": [
+                    "Martial Strikes",
+                    "Martial Techniques",
+                    "Sensei Spells"
+                ]
+            },
+            "7": {
+                "features": [
+                    "Unleash"
+                ]
+            },
+            "10": {
+                "features": [
+                    "Shrug It Off"
+                ]
+            },
+            "14": {
+                "features": [
+                    "Martial Prodigy"
+                ]
+            }
+        },
+        "features": {
+            "Martial Strikes": {
+                "description": [
+                    {
+                        "title": "untitled",
+                        "content": "You teach your companion how to use its body as a deadly weapon. Your companion gains a new attack option: a Martial Strike. This is a melee attack that uses a part of the companion’s anatomy. Your companion can use its choice of Strength or Dexterity when calculating its attack and damage modifiers for this attack, which deals damage of a type (usually bludgeoning, piercing, or slashing) that makes sense for you companion (work with your GM to determine this for each companion). These attacks deal 1d6 damage starting at 3rd level, 1d8 at 7th level, 1d10 at 10th level, and 1d12 at 14th level, and 2d8 at 18th level."
+                    },
+                    {
+                        "title": "untitled",
+                        "content": "When you reach 5th level in this class, your companion can make two Martial Strike attacks when it takes the Attack action on its turn. If your companion has the Multiattack action option, it can replace any of its attacks with an Martial Strike attack."
+                    }
+                ],
+                "levels": [3, 7, 10, 14, 18]
+            },
+            "Martial Techniques": {
+                "description": [
+                    {
+                        "title": "untitled",
+                        "content": "You learn specific martial techniques, which you teach to each of your companions. Choose three techniques from the Martial Techniques section at the end of this subclass. When you command a companion on your turn, you can instruct it to use one or more of these techniques."
+                    },
+                    {
+                        "title": "untitled",
+                        "content": "When you reach 7th, 10th, 14th, and 18th level in this class, you learn one additional technique that your companions can use."
+                    }
+                ],
+                "levels": [3, 7, 10, 14, 18]
+            },
+            "Sensei Spells": {
+                "description": [
+                    {
+                        "title": "",
+                        "type": "untitled",
+                        "content": "You learn additional spells when you reach certain levels in this class, as shown in the Sensei Spells table. Each spell counts as a tamer spell for you, but it doesn’t count against the number of tamer spells you know."
+                    },
+                    {
+                        "title": "Sensei Spells",
+                        "type": "table",
+                        "content": {
+                            "header": [["Tamer Level", "Tamer Spells"]],
+                            "body": [["3rd", "Flash, Repulsing Palm"],
+                            ["5th", "Skin of Stone, Wind Strike"],
+                            ["9th", "Create Food and Water, Haste"],
+                            ["13th", "Freedom of Movement, Skin of Steel"],
+                            ["17th", "Endure, Greater Restoration"]]
+                        }
+                    }
+                ],
+                "levels": [3, 5, 9, 13, 17]
+            },
+            "Unleash": {
+                "description": [
+                    {
+                        "type": "untitled",
+                        "content": "With a flourish, your companion can perform a series of complicated martial combinations, flitting between targets with lightning speed. As an action, your companion moves up to its speed (this movement doesn’t provoke opportunity attacks, and can make up to six Martial Strike attacks, each of which must be against a different target. Until the end of its turn, the companion’s movement does not provoke opportunity attacks."
+                    },
+                    {
+                        "type": "untitled",
+                        "content": "Once a companion uses this action, it can’t do so again until you finish a short or long rest. Starting at 18th level, a companion can use this action twice between each of your short or long rests."
+                    }
+                ],
+                "levels": [7, 18]
+            },
+            "Shrug It Off": {
+                "description": [
+                    {
+                        "type": "untitled",
+                        "content": "You have learnt to use your mental connection to shield your companion from pain and fatigue. Whenever your companion takes bludgeoning, piercing, or slashing damage, you can reduce the damage it takes by an amount equal to your tamer spellcasting ability modifier (minimum reduction of 1). You can’t use this feature while you are incapacitated."
+                    }
+                ],
+                "levels": [10]
+            },
+            "Martial Prodigy": {
+                "description": [
+                    {
+                        "type": "untitled",
+                        "content": "As an action, you can infuse your companion with your own spirit. For 1 minute, it can make four Martial Strike attacks when it takes the Attack action on its turn instead of two, it can take two bonus actions on each of its turns, and it gains temporary hit points equal to your spellcasting ability modifier at the start of each of its turns. Once you use this feature, you can’t do so again until you finish a long rest."
+                    }
+                ],
+                "levels": [14]
+            }
+        }
+    }
+]

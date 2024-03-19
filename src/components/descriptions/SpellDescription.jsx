@@ -1,7 +1,8 @@
 import MonsterDescription from "@/components/descriptions/MonsterDescription";
 import { useMonsterStore } from "@/context/monsterStore";
-import styles from "@/styles/Description.module.css";
+import styles from "@/styles/components/Description.module.css";
 import { capitalizeTitle, capitalize } from "@/utils/utils";
+import Header from "@/components/basic/Header";
 
 const SpellDescription = ({ spellData, descriptionOnly=false }) => {
     const monsters = useMonsterStore((state) => state.monsters)
@@ -24,10 +25,7 @@ const SpellDescription = ({ spellData, descriptionOnly=false }) => {
     }
 
     const findMonster = (id) => {
-        // console.log(id)
-        // console.log(monsters)
         const result = monsters.find(m => m.id === id)
-        // console.log(result)
         if (result !== undefined) {
             return <MonsterDescription monsterData={result}/>
         }
@@ -40,9 +38,9 @@ const SpellDescription = ({ spellData, descriptionOnly=false }) => {
         <div className={styles.spellDescContainer} >
             {!descriptionOnly && <>
                 <div className="name-or-title">
-                    <h3>
-                        {spellData.name}
-                    </h3>
+                    <Header variant={1}>
+                        <h3>{spellData.name}</h3>
+                    </Header>
                 </div>
                 <div className="source">
                     {`Source: ${capitalizeTitle(spellData.source)}`}

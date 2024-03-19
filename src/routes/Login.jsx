@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import styles from '@/styles/Login.module.css';
+import styles from '@/styles/routes/Login.module.css';
 import { useAuthStore, useDBAuthStore } from '@/context/authStore'
 import { useNavigate, useLocation } from 'react-router-dom';
-import Header from '@/components/Header';
+import Header from '@/components/basic/Header';
 import { NavLink } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 

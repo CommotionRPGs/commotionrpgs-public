@@ -1,5 +1,5 @@
-import Header from "@/components/Header";
-import styles from '@/styles/Login.module.css';
+import Header from "@/components/basic/Header";
+import styles from '@/styles/routes/Login.module.css';
 import { useState } from 'react'
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useAuthStore } from "@/context/authStore";

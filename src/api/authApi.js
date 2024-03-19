@@ -34,7 +34,7 @@ export async function getRefs(access_token) {
 
     try {
         const referralCodes = await authSession.functions.getRefs()
-        console.log(referralCodes)
+        console.log(`Restrieved referral codes: ${referralCodes}`)
         return referralCodes;
     } catch(err) {
         console.log('Failed to retrieve referral codes')
@@ -67,6 +67,19 @@ export async function deleteRef(access_token, referral_code) {
         return deletedReferralCode;
     } catch (err) {
         console.log('Failed to delete referral code')
+        console.error(err)
+    }
+}
+
+export async function updateUserData(access_token, updatedUserData) {
+    const credentials = Credentials.jwt(access_token)
+    const authSession = await authApp.logIn(credentials)
+
+    try {
+        const newUserData = await authSession.functions.updateUserData(updatedUserData)
+        console.log(`Updated userData item ${updatedUserData.key} to value ${updatedUserData.value}`)
+    } catch (err) {
+        console.log('Failed to update userData')
         console.error(err)
     }
 }

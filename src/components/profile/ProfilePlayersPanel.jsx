@@ -1,4 +1,4 @@
-import styles from "@/styles/Profile.module.css"
+import styles from "@/styles/routes/Profile.module.css"
 import { useAuthStore } from "@/context/authStore";
 import BetterModal from "@/components/BetterModal";
 import TableLogic from "@/components/table/TableLogic";

@@ -14,5 +14,5 @@ export async function addSpell(user, spell) {
 
 export async function editSpell(user, spell) {
     console.log(`Editing spell ${spell.name}...`)
-    return await user.functions.editSpell(spell._id, spell)
+    return await user.functions.editSpell(spell.id, spell)
 }

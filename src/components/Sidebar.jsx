@@ -1,4 +1,4 @@
-import styles from "@/styles/Sidebar.module.css"
+import styles from "@/styles/components/Sidebar.module.css"
 import { useParams, NavLink, useLocation, Outlet, useNavigate } from 'react-router-dom'
 //import { Outlet, NavLink, useNavigate } from 'react-router-dom'
 import { FaEye } from "react-icons/fa"
@@ -9,12 +9,12 @@ const Sidebar = ({tabs}) => {
 
     const createTabItem = (tabItem) => {
         return (
-            <NavLink className={styles.tabItemContainer} onClick={() => {}} end to={tabItem.value}>
+            <NavLink className={styles.tabItemContainer} onClick={() => {}} end to={tabItem.value} key={`tab_${tabItem.label}`}>
                 <div className={styles.tabItemName} >
                     {tabItem.label}
                     {tabItem.symbol}
                 </div>
-                <div className={styles.tabItemSelect} >
+                <div className={`${styles.tabItemSelect} paper`} >
                     {/*tabItem.value === selectedTab && <FaEye style={{width: '1.5rem', height: '1.5rem'}} />*/}
                     <FaEye className={styles.activeSymbol} style={{width: '1.5rem', height: '1.5rem'}} />
                 </div>

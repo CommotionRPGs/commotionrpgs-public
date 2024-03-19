@@ -17,6 +17,7 @@ export const sources = [
     "lost laboratory of kwalish",
     "player's handbook",
     "rime of the frostmaiden",
+    "ryoko's guide to the yokai realms",
     "spelljammer",
     "steinhardt's guide to the eldritch hunt",
     "stibbles' codex of companions",
@@ -30,6 +31,42 @@ export const sources = [
     "wizards of the toast",
     "xanathar's guide to everything"
 ]
+
+export const grouped_sources = [
+    {
+        label: "Kibbles",
+        options: [
+            "kibbles' casting compendium",
+            "kibbles' compendium of craft and creation",
+            "kibbles' compendium of legends and legacies",
+        ]
+    },
+    {
+        label: "Loot Tavern",
+        options: [
+            "heliana's guide to monster hunting",,
+            "ryoko's guide to the yokai realms",
+        ]
+    },
+    {
+        label: "Wizards of the Coast",
+        options: [
+            "aquisitions inc.",
+            "fizban's treasury of dragons",
+            "guildmaster's guide to ravnica",
+            "lost laboratory of kwalish",
+            "player's handbook",
+            "rime of the frostmaiden",
+            "spelljammer",
+            "strixhaven",
+            "tasha's cauldron of everything",
+            "the book of many things",
+            "unearthed arcana",
+            "xanathar's guide to everything"
+        ]
+    }
+]
+
 export const classes = [
     'artificer',
     'bard',

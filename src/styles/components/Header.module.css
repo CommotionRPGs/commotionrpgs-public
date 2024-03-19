@@ -1,0 +1,178 @@
+.header {
+    
+    & h1 {
+        font-size: 3rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        line-height: 1em;
+        /*text-transform: lowercase;*/
+        text-align: center;
+        color: #aeadad;
+    }
+
+    & h2 {
+        font-size: 2rem;
+    }
+
+    & h3 {
+        font-size: 1.4rem;
+        width: fit-content;
+        /*background-color: transparent;*/
+        border: 8px solid transparent;
+        /*border-right: 176px solid black;
+    
+        color: lightgray;
+        border-image-source: url(/src/assets/Paint_Streak_Background.png);
+        border-image-slice: 8 352 8 8 fill;
+        border-image-repeat: round stretch;*/
+    }
+
+    & h4 {
+        font-size: 1.1rem;
+    }
+
+    & h5 {
+        font-size: 1.1rem;
+    }
+
+    & h6 {
+        font-size: 1.0rem;
+    }
+}
+
+:global(.heliana) {
+    .header {
+        & h2 {
+            font-family: "Coinage Caps Kruger Gray";
+            font-weight: 100;
+        }
+
+        & h3 {
+            border: 8px solid black;
+            border-right: 88px solid black;
+
+            color: lightgray;
+            border-image-source: url(/src/assets/Paint_Streak_Background.png);
+            border-image-slice: 8 352 8 12  fill;
+            border-image-repeat: round stretch;
+            font-family: "Coinage Caps Kruger Gray";
+            font-weight: 100;
+        }
+
+        & h3 + .stroke {
+            margin-top: -14px;
+            height: 4px;
+            width: 100%;
+            /*border: 0px solid black;*/
+            border-left: 40px solid black;
+            border-right: 40px solid black;
+
+            border-image-source: url(/src/assets/Heliana_Stroke_1.PNG);
+            border-image-slice: 0 160 0 160 fill;
+        }
+
+        & h4 {
+            font-family: "Coinage Caps Kruger Gray";
+            font-weight: 100;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        & h5 {
+            font-size: 1.5rem;
+            font-family: "Draconis";
+            font-weight: 100;
+        }
+
+        & h6 {
+            font-family: "Halant";
+            font-weight: normal;
+        }
+
+        & h6::first-letter {
+            font-size: 1.3rem;
+        }
+    }
+
+    .header.variant1 {
+        & h3 {
+            border: none;
+            color: inherit;
+        }
+
+        & h3 + .stroke {
+            margin: 0;
+            border: none;
+            height: 0;
+        }
+
+        & h4 {
+            text-decoration: none;
+        }
+    }
+}
+
+:global(.ryoko) {
+    .header  {
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+        gap: 0.5rem;
+        font-family: "Cleavers Juvenia";
+
+        & h1 {
+            margin: 0;
+            flex: 1;
+        }
+
+        & h3 {
+            border: none;
+            padding-top: 16px;
+            /*font-weight: normal;*/
+        }
+
+        & h3 + .stroke {
+            flex: 1;
+            height: 1.5rem;
+            border-left: 36px solid black;
+            border-right: 36px solid black;
+
+            border-image-source: url(/src/assets/Ryoko_Decoration_1.png);
+            border-image-slice: 0 96 0 96 fill;
+        }
+
+        & h4 {
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        & h5 {
+            font-family: "Raleigh Extra Bold";
+            font-weight: 100;
+            text-transform: uppercase;
+            flex: 1;
+        }
+
+        & h5::first-letter {
+            font-size: 1.3rem;
+        }
+    }
+
+    .header.variant1 {
+        & h3 {
+            padding: 0;
+        }
+        & h3 + .stroke {
+            border: none;
+        }
+        & h4 {
+            text-decoration: none;
+        }
+    }
+}
+/*{
+    padding: '20px 0',
+    lineHeight: '1.5em',
+    color: '#aeadad',
+    textAlign: 'center',
+}*/

@@ -37,15 +37,15 @@
     gap: 0.5rem;
 
     border: 10px solid black;
-    border-image: url(../assets/Pencil_Border.PNG) 10% repeat;
+    border-image: url(/src/assets/Pencil_Border.PNG) 10% repeat;
 }
 
 .tabItemContainer:hover > .tabItemName {
-    border-image: url(../assets/Pencil_Border_Grey.PNG) 10% repeat;
+    border-image: url(/src/assets/Pencil_Border_Grey.PNG) 10% repeat;
 }
 
 .tabItemSelect {
-    background-color: white;
+    /*background-color: #e5e9db;*/
     border-radius: 50%;
     border: 1px solid black;
     display: flex;
@@ -73,7 +73,7 @@
     padding: 0 0.5rem;
 
     border: 10px solid black;
-    border-image: url(../assets/Pencil_Border.PNG) 10% repeat;
+    border-image: url(/src/assets/Pencil_Border.PNG) 10% repeat;
 }
 .section .title {
     font-size: large;
@@ -82,17 +82,17 @@
 .section .line {
     width: 100%;
     border-top: 5px solid #ddd;
-    border-image: url(../assets/Pencil_Border_Grey.PNG) 10% repeat;
+    border-image: url(/src/assets/Pencil_Border_Grey.PNG) 10% repeat;
 }
 .section .btn {
     cursor: pointer;
     border: 10px solid black;
-    border-image: url(../assets/Pencil_Border.PNG) 10% repeat;
+    border-image: url(/src/assets/Pencil_Border.PNG) 10% repeat;
     background-color: lightblue;
     border-radius: 10px;
 }
 .btn:hover {
-    border-image: url(../assets/Pencil_Border_Grey.PNG) 10% repeat;
+    border-image: url(/src/assets/Pencil_Border_Grey.PNG) 10% repeat;
 }
 .item {
     display: flex;
@@ -103,5 +103,5 @@
 }
 .item:not(:first-child) {
     border-top: 5px solid #ddd;
-    border-image: url(../assets/Pencil_Border_Grey.PNG) 10% repeat;
+    border-image: url(/src/assets/Pencil_Border_Grey.PNG) 10% repeat;
 }

@@ -3,7 +3,7 @@ import Select from 'react-select'
 import CreatableSelect from 'react-select/creatable'
 import TextAreaAutoSize from 'react-textarea-autosize'
 import FormContentSection from '@/components/forms/FormContentSection'
-import styles from '@/styles/Form.module.css'
+import styles from '@/styles/components/Form.module.css'
 import {v4 as uuidv4 } from 'uuid';
 import {
     sources,

@@ -1,4 +1,4 @@
-import styles from '@/styles/Modal.module.css'
+import styles from '@/styles/components/Modal.module.css'
 import { GrClose } from 'react-icons/gr'
 
 const BetterModal = ( { children, openModal, setOpenModal } ) => {

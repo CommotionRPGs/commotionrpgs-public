@@ -1,0 +1,9 @@
+.content {
+    overflow: hidden;
+    max-height: 0px;
+    transition: max-height 0.25s ease-out;
+}
+.content.expanded {
+    max-height: 300px;
+    transition: max-height 0.4s ease-in;
+}

@@ -1,0 +1,100 @@
+.excerpt {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.content * {
+    text-align: center;
+    align-items: center;
+}
+
+.header, .footer {
+    display: flex;
+    flex-direction: row;
+}
+
+:global(.heliana) .header > *, :global(.heliana) .footer > * {
+    border-image: url(/src/assets/Heliana_Stroke_2.PNG);
+    border-image-slice: 0 99 0 66 fill;
+}
+
+:global(.heliana) {
+    & .header > * {
+        flex: 1;
+        border-left: 24px solid black;
+        border-right: 33px solid black;
+        height: 12px;
+    }
+    
+    & .header > *:first-child {
+        transform: scale(-1, 1);
+    }
+    
+    & .footer > * {
+        flex: 1;
+        border-left: 24px solid black;
+        border-right: 33px solid black;
+        height: 12px;
+        transform: scale(1, -1);
+    }
+    
+    & .footer > *:first-child {
+        transform: scale(-1, -1);
+    }
+}
+
+:global(.ryoko) {
+    & .excerpt {
+        margin-top: 15px;
+    }
+
+    & .content {
+        background-color: rgba(67, 60, 54, 0.8);
+        color: #e6a35d;
+    }
+
+    & .header {
+        position: relative;
+        background-color: #e6a35d;
+        height: 3px;
+        margin-bottom: -5px;
+        z-index: 1;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    & .header > * {
+        position: relative;
+        height: 15px;
+        width: 15px;
+        border-radius: 100% 0 0 0;
+        background-color: rgba(67, 60, 54, 0.8);
+        top: -17px;
+
+        border-image-source: url(/src/assets/Ryoko_Arch_1.png);
+        border-image-slice: 0 0 0 0 fill;
+    }
+
+    & .header > *:last-child {
+        transform: scale(-1, 1);
+        
+    }
+
+    & .footer {
+        position: relative;
+        background-color: #e6a35d;
+        height: 3px;
+        margin-top: -5px;
+        z-index: 1;
+    }
+}

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import TextAreaAutoSize from 'react-textarea-autosize'
-import styles from '@/styles/Form.module.css'
+import styles from '@/styles/components/Form.module.css'
 import { TbCaretUp, TbCaretDown } from 'react-icons/tb'
 import { MdRemoveCircleOutline, MdAddCircleOutline } from 'react-icons/md'
 import { GiQuillInk } from 'react-icons/gi'

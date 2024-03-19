@@ -2,24 +2,77 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    /*height: inherit;*/
 }
 /*@font-face {
     font-family: Schoolbell;
     src: url(https://fonts.googleapis.com/css?family=Schoolbell&v1);
 }*/
+@font-face {
+    font-family: "Coinage Caps Kruger Gray";
+    src: url('/src/fonts/CoinageCapsKrugerGray.ttf') format('truetype');
+}
+@font-face {
+    font-family: "Draconis";
+    src: url('/src/fonts/Draconis/Draconis.otf') format('opentype');
+}
+@font-face {
+    font-family: "Draconis";
+    font-style: italic;
+    src: url('/src/fonts/Draconis/Draconis\ Italic.otf') format('opentype');
+}
+@font-face {
+    font-family: "Draconis";
+    font-weight: bold;
+    src: url('/src/fonts/Draconis/Draconis\ Bold.otf') format('opentype');
+}
+@font-face {
+    font-family: "Draconis";
+    font-weight: bold;
+    font-style: italic;
+    src: url('/src/fonts/Draconis/Draconis\ Bold\ Italic.otf') format('opentype');
+}
+@font-face {
+    font-family: "Halant";
+    src: url('/src/fonts/halant/Halant-Regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: "Halant";
+    font-weight: lighter;
+    src: url('/src/fonts/halant/Halant-Light.ttf') format('truetype');
+}
+@font-face {
+    font-family: "Halant";
+    font-weight: normal;
+    src: url('/src/fonts/halant/Halant-Medium.ttf') format('truetype');
+}
+@font-face {
+    font-family: "Cleavers Juvenia";
+    src: url('/src/fonts/Cleavers_Juvenia_Heavy/Cleavers_Juvenia.ttf') format('truetype');
+}
+@font-face {
+    font-family: "Cleavers Juvenia";
+    font-weight: bold;
+    src: url('/src/fonts/Cleavers_Juvenia_Heavy/Cleavers_Juvenia_Heavy.ttf') format('truetype');
+}
+@font-face {
+    font-family: "Raleigh Extra Bold";
+    src: url(/src//fonts/Raleigh\ Extra\ Bold.otf) format('opentype');
+}
 body {
     /*font-family: "Segoe UI", sans-serif;*/
     font-family: Schoolbell, arial, serif;
     line-height: 1.4;
     color: #000;
-    background: #fff;
+    background: #4b2c0d;
+    /*background: #e5e9db;*/
     /*background: #d7bea6;*/
     height: 100vh;
     font-weight: 400;
 }
 .wrapper {
     width: 100%;
-    height: 100%;
+    min-height: 100vh;
     padding: 8rem 20px 3rem;
 }
 .todos {
@@ -71,6 +124,9 @@ a {
 p {
     margin-bottom: 10px;
 }
+li {
+    list-style-position: inside;
+}
 /* Active route */
 .active {
     color: #005bb3;
@@ -95,7 +151,8 @@ About route
     color: #8a4baf;
 }
 .main_content {
-    max-width: 650px;
+    /*max-width: 650px;*/
+    min-height: 100%;
 }
 .main_content h2 {
     margin-bottom: 15px;
@@ -121,6 +178,9 @@ Sidebar navigation
 .navbar {
     position: relative;
 }
+.navbar * {
+    color: tan;
+}
 button {
     cursor: pointer;
     background: transparent;
@@ -138,7 +198,8 @@ button {
 .menu-nav {
     list-style: none;
     position: absolute;
-    background: #fff;
+    /*background: white;*/
+    background: #4b2c0d;
     left: 0;
     width: 0;
     overflow: hidden;
@@ -170,20 +231,35 @@ button {
     right: 30px;
     top: 40px;
     display: flex;
+    justify-content: center;
     gap: 2rem;
     font-size: 20px;
-    color: #005bb3;
+    color: tan;
+}
+.logout * {
+    color: tan;
 }
 .clickable-row {
     cursor: pointer;
 }
 .clickable-row:hover {
-    background-color: #eff0f0;
+    /*background-color: #eff0f0;*/
+    background-color: rgba(255, 255, 255, 0.4);
 }
 .clickable-row.expanded {
-    background-color: #eff0f0;
+    background-color: rgba(255, 255, 255, 0.4);
 }
 .clickable-row-expansion {
     /*line-height: 26pt;*/
     margin-bottom: 1.2em;
+}
+.paper {
+    background-image: url(/src/assets/tilable-paper-texture.jpg);
+    background-repeat: repeat;
+    background-size: 256px;
+}
+.page {
+    border-radius: 0 1rem 1rem 0;
+    box-shadow: rgba(0, 0, 0, 0.35) 5px 5px 15px -5px,
+    inset 20px 0 30px -15px rgba(0, 0, 0, 0.35);
 }

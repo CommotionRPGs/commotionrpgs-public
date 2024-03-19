@@ -1,5 +1,5 @@
 import { NavLink, Outlet } from "react-router-dom";
-import Header from "@/components/Header";
+import Header from "@/components/basic/Header";
 import MonsterDescription from "@/components/descriptions/MonsterDescription";
 import monsters from '@/data/monsters'
 

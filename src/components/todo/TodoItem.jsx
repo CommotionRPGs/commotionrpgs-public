@@ -1,4 +1,4 @@
-import styles from '@/styles/TodoItem.module.css'
+import styles from '@/styles/components/TodoItem.module.css'
 import { useState, useRef } from 'react';
 import { FaTrash } from "react-icons/fa";
 import { AiFillEdit } from "react-icons/ai";

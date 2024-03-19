@@ -1,0 +1,15 @@
+.table {
+    border-spacing: 0;
+}
+
+.tableWrapper {
+    width: fit-content;
+}
+
+.table .row:nth-child(odd) {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.table th, .table td {
+    padding: 3px 0.5rem;
+}
