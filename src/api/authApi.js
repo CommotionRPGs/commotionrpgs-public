@@ -71,6 +71,20 @@ export async function deleteRef(access_token, referral_code) {
     }
 }
 
+export async function deleteUsedRef(access_token, referral_code) {
+    const credentials = Credentials.jwt(access_token)
+    const authSession = await authApp.logIn(credentials)
+
+    try {
+        const deletedReferralCode = await authSession.functions.deleteUsedRef(referral_code)
+        console.log(`Deleted referral code ${deletedReferralCode.referral_code}`)
+        return deletedReferralCode;
+    } catch (err) {
+        console.log('Failed to delete referral code')
+        console.error(err)
+    }
+}
+
 export async function updateUserData(access_token, updatedUserData) {
     const credentials = Credentials.jwt(access_token)
     const authSession = await authApp.logIn(credentials)

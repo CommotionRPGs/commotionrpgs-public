@@ -4,7 +4,7 @@ import BetterModal from "@/components/BetterModal";
 import TableLogic from "@/components/table/TableLogic";
 import { useState, useEffect } from "react";
 import Select from 'react-select'
-import { addRef, getRefs, deleteRef } from "@/api/authApi";
+import { addRef, getRefs, deleteRef, deleteUsedRef } from "@/api/authApi";
 import { capitalize } from "@/utils/utils";
 import { FaTrash } from "react-icons/fa";
 
@@ -37,7 +37,13 @@ const ProfilePlayersPanel = () => {
 
     const handleDeleteCode = (referral_code) => {
         setOpenConfirmModel(false)
-        deleteRef(user.access_token, referral_code)
+        if (referral_code.active) {
+            deleteRef(user.access_token, referral_code.code)
+        }
+        else {
+            deleteUsedRef(user.access_token, referral_code.code)
+        }
+        
         setRefCodes(refCodes.filter((r) => r.referral_code != referral_code))
     }
 
@@ -96,7 +102,7 @@ const ProfilePlayersPanel = () => {
                                     {capitalize(data.reusable.toString())}
                                 </div>
                             ),
-                            buttons: ((data) => <FaTrash onClick={() => setOpenConfirmModel(data.referral_code)}/>)
+                            buttons: ((data) => <FaTrash onClick={() => setOpenConfirmModel({code: data.referral_code, active: data.active})}/>)
                         }
                     }}
                 />

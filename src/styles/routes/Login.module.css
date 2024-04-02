@@ -10,6 +10,10 @@
     flex-direction: column;
     box-shadow: rgb(32 32 32 / 8%) 0px 10px 32px 0px;
     padding: 40px;
+
+    & > p, a {
+        color: lightgray;
+    }
 }
 .form input {
     height: 50px;
