@@ -54,6 +54,7 @@
         }
 
         & h3 {
+            width: fit-content;
             border: 8px solid black;
             border-right: 88px solid black;
 
@@ -73,7 +74,7 @@
             border-left: 40px solid black;
             border-right: 40px solid black;
 
-            border-image-source: url(/src/assets/Heliana_Stroke_1.PNG);
+            border-image-source: url(/src/assets/Heliana_Stroke_1.png);
             border-image-slice: 0 160 0 160 fill;
         }
 
