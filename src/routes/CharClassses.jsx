@@ -8,6 +8,7 @@ import { level_to_pb } from "@/data/configs/dataConfigs"
 import { numSuffix, capitalize } from "@/utils/utils"
 import charClassesData from "@/data/charClasses.json"
 import subclasses from "@/data/subclasses.json"
+import { NavLink } from 'react-router-dom';
 
 const CharClasses = () => {
     const classData = charClassesData[0]/*{
@@ -337,9 +338,17 @@ const CharClasses = () => {
                 }
                 {feature.levels[0] === level && featureName === 'Subclass' &&
                     subclassData.map((subclass) => 
-                        <button onClick={() => setSelectedSubclass(subclass)} >
-                            {subclass.name}
-                        </button>
+                        <div className={`${styles.subclassSelector} ${selectedSubclass.name === subclass.name ? styles.selected : ''}`} onClick={() => setSelectedSubclass(subclass)} >
+                            <div className={styles.name}>
+                                <NavLink to={subclass.name.replace(/\W+/g, '-').toLowerCase()}>
+                                    <Header variant={1}>
+                                        <h3>
+                                            {subclass.name}
+                                        </h3>
+                                    </Header>    
+                                </NavLink>
+                            </div>
+                        </div>
                     )
                 }
             </>

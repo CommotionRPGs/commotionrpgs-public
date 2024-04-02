@@ -20,6 +20,7 @@ import ProfilePanel from '@/components/profile/ProfilePanel';
 import ProfilePlayersPanel from '@/components/profile/ProfilePlayersPanel';
 import PageTurn from '@/routes/PageTurn';
 import CharClasses from '@/routes/CharClassses';
+import Subclass from '@/routes/Subclass';
 
 function TodoApp() {
     const user = useAuthStore((state) => state.user)
@@ -40,8 +41,9 @@ function TodoApp() {
                 </ProtectedRoute>
             }>
                 <Route index element={<Home />} />
-                <Route path="classes" element={<CharClasses />}>
-                    <Route path=":subclass"/>
+                <Route path="classes">
+                    <Route index element={<CharClasses />} />
+                    <Route path=":subclass" element={<Subclass />}/>
                 </Route>
                 <Route path="spells">
                     <Route index element={<Spells />} />

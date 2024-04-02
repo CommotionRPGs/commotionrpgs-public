@@ -4,6 +4,7 @@ import MonsterDescription from "@/components/descriptions/MonsterDescription";
 import { useEffect } from "react";
 import { useMonsterStore } from "@/context/monsterStore";
 import { useDBAuthStore } from "@/context/authStore";
+import styles from '@/styles/routes/Bestiary.module.css'
 
 const Bestiary = () => {
     const monsters = useMonsterStore((state) => state.monsters)
@@ -17,7 +18,7 @@ const Bestiary = () => {
     }, [dbUser])
 
     return (
-        <div>
+        <div className={styles.bestiary} >
             <TableLogic
                 data={monsters}
                 columns={[
@@ -34,7 +35,9 @@ const Bestiary = () => {
                     display: {
                         expander_content: ((data) => {
                             return (
-                                <MonsterDescription monsterData={data} />
+                                <div className={styles.expanderWrapper} >
+                                    <MonsterDescription monsterData={data} />
+                                </div>
                             )
                         })
                     }

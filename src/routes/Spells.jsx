@@ -3,6 +3,7 @@ import Header from '@/components/basic/Header'
 import TableLogic from '@/components/table/TableLogic';
 import SpellDescription from '@/components/descriptions/SpellDescription';
 import { useSpellStore } from '@/context/spellStore';
+import { useMonsterStore } from '@/context/monsterStore';
 import { NavLink } from 'react-router-dom';
 import { TbCircleLetterR, TbCircleLetterC } from 'react-icons/tb'
 import {
@@ -18,7 +19,9 @@ import styles from "@/styles/routes/Spells.module.css"
 
 const Spells  = () => {
     const spells = useSpellStore((state) => state.spells)
+    const monsters = useMonsterStore((state) => state.monsters)
     const loadSpells = useSpellStore((state) => state.loadSpells)
+    const loadMonsters = useMonsterStore((state) => state.loadMonsters)
     const dbUser = useDBAuthStore((state) => state.dbUser)
     //const tableSettings = useFilterStore((state) => state.spells)
     const filter = useFilterStore((state) => state.spellsFilter)
@@ -27,6 +30,9 @@ const Spells  = () => {
     useEffect(() => {
         if (spells.length === 0 && dbUser) {
             loadSpells(dbUser)
+        }
+        if (monsters.length === 0 && dbUser) {
+            loadMonsters(dbUser)
         }
     }, [dbUser])
 

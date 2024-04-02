@@ -22,7 +22,38 @@
     flex-direction: row;
 }
 
+:global(.default-theme) {
+    & .header, .footer {
+        justify-content: space-between;
+        & > * {
+            width: 1rem;
+            height: 0.5rem;
+            background-color: black;
+            clip-path: polygon(0% 100%, 0% 0%, 100% 100%);
+        }
+        & > *:first-child {
+            transform: scale(-1, 1);
+        }
+    }
+    
+    & .header {
+        border-bottom: 2px solid black;
+    }
+    
+    & .footer {
+        border-top: 2px solid black;
+        & > * {
+            transform: scale(1, -1);
+        }
+        & > *:first-child {
+            transform: scale(-1, -1);
+        }
+    }
+}
+
 :global(.heliana) .header > *, :global(.heliana) .footer > * {
+    background-color: none;
+    clip-path: none;
     border-image: url(/src/assets/Heliana_Stroke_2.PNG);
     border-image-slice: 0 99 0 66 fill;
 }
@@ -60,6 +91,11 @@
     & .content {
         background-color: rgba(67, 60, 54, 0.8);
         color: #e6a35d;
+    }
+
+    & .header > *, .footer > * {
+        background-color: none;
+        clip-path: none;
     }
 
     & .header {

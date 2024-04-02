@@ -16,15 +16,6 @@
 
     & h3 {
         font-size: 1.4rem;
-        width: fit-content;
-        /*background-color: transparent;*/
-        border: 8px solid transparent;
-        /*border-right: 176px solid black;
-    
-        color: lightgray;
-        border-image-source: url(/src/assets/Paint_Streak_Background.png);
-        border-image-slice: 8 352 8 8 fill;
-        border-image-repeat: round stretch;*/
     }
 
     & h4 {
@@ -37,6 +28,21 @@
 
     & h6 {
         font-size: 1.0rem;
+    }
+}
+
+:global(.default-theme) {
+    & .header {
+        & h3 {
+            border-bottom: 5px solid #ddd;
+            border-image: url(/src/assets/Pencil_Border_Grey.PNG) 10% repeat;
+            font-variant: small-caps;
+        }
+    }
+    & .header.variant1 {
+        & h3 {
+            border: none;
+        }
     }
 }
 
@@ -128,6 +134,7 @@
         & h3 {
             border: none;
             padding-top: 16px;
+            font-variant: inherit;
             /*font-weight: normal;*/
         }
 

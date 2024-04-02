@@ -61,7 +61,6 @@ const InfPageLogic = ({children=['Page A', 'Page B'], flip=false, setFlip, setCu
 
     return (
         <div className={styles.page} /*style={{position: 'relative', left: 0}}*/>
-            things and stuff
             <CyclePage pageState={pageA}>
                 {/*contentA*/children[0]}
             </CyclePage>

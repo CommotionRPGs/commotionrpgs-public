@@ -194,13 +194,14 @@ button {
     cursor: pointer;
     background: transparent;
     border: none;
+    z-index: 100;
 }
 .menu-nav {
     list-style: none;
-    position: absolute;
+    position: fixed;
     /*background: white;*/
     background: #4b2c0d;
-    left: 0;
+    left: 20px;
     width: 0;
     overflow: hidden;
     max-width: 290px;

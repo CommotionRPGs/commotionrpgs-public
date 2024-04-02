@@ -4,9 +4,14 @@ import { useAuthStore } from "@/context/authStore";
 
 const Layout = () => {
     const user = useAuthStore((state) => state.user)
+    const themeToClassName = {
+        'default': 'default-theme',
+        'ryoko': 'ryoko',
+        'heliana': 'heliana'
+    }
 
     return (
-        <div className={`wrapper ${user.theme}`}>
+        <div className={`wrapper ${themeToClassName[user.theme]}`}>
             <Navbar />
             <div style={{
                 display: 'flex',
